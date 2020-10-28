@@ -1,12 +1,13 @@
+# jekyll configuration
 title: Contract Shark
 heading: a lightweight, open source framework for testing smart contracts and economic threats
 logo: /assets/logo.svg
-email: info@contractshark.org
+email: sam@freighttrust.com
 google_analytics:
 
 menu:
-  - url: "#specron-framework"
-    title: What is Specron
+  - url: "#contractshark-framework"
+    title: What is Contract Shark
   - url: "#installation"
     title: Getting started
 
