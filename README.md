@@ -1,4 +1,4 @@
-# contract-shark 
+# contract-shark
 
 Contract Shark is a lightweight, open source, magic-free framework for testing smart contracts written in [Solidity](https://solidity.readthedocs.io/). The testing suite is built on top of the [Hayspec framework](https://github.com/hayspec/framework) thus using [TypeScript](https://www.typescriptlang.org/) is supported.
 
@@ -53,7 +53,7 @@ The core test functionality is provided by the `@contract-shark/spec` module whi
 The framework provides a `Spec` class which holds basically the whole testing power. You start your test by creating an instance of that class.
 
 ```ts
-import { Spec } from '@contract-shark/spec';
+import { Spec } from "@contract-shark/spec";
 
 const spec = new Spec();
 ```
@@ -63,7 +63,8 @@ const spec = new Spec();
 The Spec instance provides methods that you can use when writing tests. Most of the time you will use the `test` method which performs the test you write.
 
 ```ts
-spec.test('is true', async (ctx) => { // promise | function
+spec.test("is true", async (ctx) => {
+  // promise | function
   ctx.true(true);
 });
 ```
@@ -107,6 +108,7 @@ spec.afterEach((context, stage) => {
   // execute after all tests
 });
 ```
+
 Callback functions can be called multiple times and the execution will happen in a defined sequence.
 
 #### Shared data
@@ -122,16 +124,16 @@ interface Data {
 const spec = new Spec<Data>();
 
 spec.beforeEach((ctx) => {
-  ctx.set('id', 100);
-  ctx.set('name', 'John');
-})
+  ctx.set("id", 100);
+  ctx.set("name", "John");
+});
 
-spec.test('is John with id=100', (ctx) => {
-  const id = ctx.get('id');
-  const name = ctx.get('name');
+spec.test("is John with id=100", (ctx) => {
+  const id = ctx.get("id");
+  const name = ctx.get("name");
   ctx.is(id, 100);
-  ctx.is(name, 'John');
-})
+  ctx.is(name, "John");
+});
 ```
 
 Values set inside the `before` and `after` blocks are available to all `spec` methods. Values set in the `beforeEach` and `afterEach` blocks are available only on the context stack of each test.
@@ -140,18 +142,18 @@ Values set inside the `before` and `after` blocks are available to all `spec` me
 
 Stage and context both provide a series of different helper methods.
 
-A very important method is the `deploy()` method which deploys a contract to a local blockchain process in the background and returns a contract instance. 
+A very important method is the `deploy()` method which deploys a contract to a local blockchain process in the background and returns a contract instance.
 
 ```ts
 const { instance, receipt } = await ctx.deploy({
-  src: './contracts.json',
-  contract: 'Main',
+  src: "./contracts.json",
+  contract: "Main",
 });
 ```
 
 ### Using CLI
 
-The `@contract-shark/cli` module is automatically installed when you initialize the project. You can interact with the utility using the `npx contract-shark` command in your terminal. 
+The `@contract-shark/cli` module is automatically installed when you initialize the project. You can interact with the utility using the `npx contract-shark` command in your terminal.
 
 To get a list of available features use the `--help` flag.
 
@@ -190,24 +192,14 @@ contract-shark configuration options can be saved inside the package.json file u
   "contract-shark": {
     "compiler": {
       "build": "./build",
-      "match": [
-        "./src/**/*.sol"
-      ],
-      "severities": [
-        "error",
-        "warning"
-      ],
+      "match": ["./src/**/*.sol"],
+      "severities": ["error", "warning"],
       "evmVersion": "byzantium"
     },
     "flattener": {
       "build": "./build",
-      "match": [
-        "./src/**/*.sol"
-      ],
-      "severities": [
-        "error",
-        "warning"
-      ]
+      "match": ["./src/**/*.sol"],
+      "severities": ["error", "warning"]
     },
     "sandbox": {
       "port": 8545,
@@ -217,13 +209,9 @@ contract-shark configuration options can be saved inside the package.json file u
       "server": true,
       "port": 8545,
       "host": "localhost",
-      "match": [
-        "./src/**/*.test.*"
-      ]
+      "match": ["./src/**/*.test.*"]
     },
-    "require": [
-      "ts-node/register"
-    ]
+    "require": ["ts-node/register"]
   }
 }
 ```
@@ -236,16 +224,17 @@ For a full example of a Solidity contract repository including continuous integr
 
 ## Packages
 
-| Package | Description | Version
-|-|-|-
-| [@contract-shark/cli](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-cli) | Command-line interface. |
-| [@contract-shark/compiler](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-compiler) | Smart contracts compiler. | 
-| [@contract-shark/flattener](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-flattener) | Smart contracts flattener. | 
-| [@contract-shark/init](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-init) | Project structure initializer. | 
-| [@contract-shark/sandbox](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-sandbox) | Ethereum sandbox server. | 
-| [@contract-shark/spec](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-spec) | Core test suite. | 
+| Package                                                                                                                | Description                    | Version |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
+| [@contract-shark/cli](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-cli)             | Command-line interface.        |
+| [@contract-shark/compiler](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-compiler)   | Smart contracts compiler.      |
+| [@contract-shark/flattener](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-flattener) | Smart contracts flattener.     |
+| [@contract-shark/init](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-init)           | Project structure initializer. |
+| [@contract-shark/sandbox](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-sandbox)     | Ethereum sandbox server.       |
+| [@contract-shark/spec](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-spec)           | Core test suite.               |
 
 @contract-shark/spec
+
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/contract-shark/framework/blob/master/CONTRIBUTING.md) for how to help out.
