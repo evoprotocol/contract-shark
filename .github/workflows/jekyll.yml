@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master
+<<<<<<< HEAD
       - gh-pages
+=======
+>>>>>>> 05a481f... Create jekyll.yml
 
 jobs:
   github-pages:
