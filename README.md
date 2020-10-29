@@ -1,17 +1,17 @@
-# contract-shark
+# ContractShark
 
-Contract Shark is a lightweight, open source, magic-free framework for testing smart contracts written in [Solidity](https://solidity.readthedocs.io/). The testing suite is built on top of the [Hayspec framework](https://github.com/hayspec/framework) thus using [TypeScript](https://www.typescriptlang.org/) is supported.
+Contract Shark is a framework for testing smart contracts written in [Solidity](https://solidity.readthedocs.io/). By framework we mean a library with some conveniences.
 
 Contract Shark provides development environment for the Ethereum blockchain and includes useful tools which enable developers to easily write tests for smart contracts.
 
-The source code is available on [GitHub](https://github.com/contract-shark/framework) where you can also find our [issue tracker](https://github.com/contract-shark/framework/issues).
+The source code is available on [GitHub](https://github.com/contractshark/framework) where you can also find our [issue tracker](https://github.com/contractshark/framework/issues).
 
 ## Installation
 
 Start by installing the contract-shark command-line tool.
 
 ```bash
-$ npm install -g @contract-shark/cli web3 solc
+$ npm install -g @contractshark/cli web3 solc
 ```
 
 contract-shark depends on the latest [web3](https://www.npmjs.com/package/web3) and [solc](https://www.npmjs.com/package/solc) packages, so make sure you have them globally installed. contract-shark also uses promises thus you need to use [Promise polyfill](https://github.com/taylorhakes/promise-polyfill) when promises are not supported.
@@ -20,25 +20,23 @@ contract-shark depends on the latest [web3](https://www.npmjs.com/package/web3) 
 
 contract-shark automates the testing process of your Solidity code. It doesn't require you to install certain applications in order to get started.
 
-The contract-shark interface is designed to fully support the power of [TypeScript](https://www.typescriptlang.org/) when writing tests. It is magic-free which means you have a complete control and visibility of what the code does and how tests are executed. The testing flow should look familiar to any JavaScript or TypeScript developer.
-
 ### Project initialization
 
-Start by creating a new project folder.
+1. Start by creating a new project folder.
 
 ```bash
-$ mkdir myproject
-$ cd myproject
+$ mkdir -p ${project_name}
+$ cd ${project_name}
 ```
 
-Initialize the project and install the dependencies.
+2. Initialize the project and install the dependencies.
 
 ```bash
-$ contract-shark init
+$ contractshark init
 $ npm install
 ```
 
-Run tests to verify everything works as expected.
+3. Run tests to verify everything works as expected.
 
 ```bash
 $ npm test
@@ -46,14 +44,14 @@ $ npm test
 
 ### Writing tests
 
-The core test functionality is provided by the `@contract-shark/spec` module which is automatically attached to your project at initialization. Here we explain some of the main framework features but please explore the source code to find out all the possibilities.
+The core test functionality is provided by the `@contractshark/spec` module which is automatically attached to your project at initialization. Here we explain some of the main framework features but please explore the source code to find out all the possibilities.
 
 #### Initializing specs
 
 The framework provides a `Spec` class which holds basically the whole testing power. You start your test by creating an instance of that class.
 
 ```ts
-import { Spec } from "@contract-shark/spec";
+import { Spec } from "@contractshark/spec";
 
 const spec = new Spec();
 ```
@@ -153,12 +151,12 @@ const { instance, receipt } = await ctx.deploy({
 
 ### Using CLI
 
-The `@contract-shark/cli` module is automatically installed when you initialize the project. You can interact with the utility using the `npx contract-shark` command in your terminal.
+The `@contractshark/cli` module is automatically installed when you initialize the project. You can interact with the utility using the `npx contract-shark` command in your terminal.
 
 To get a list of available features use the `--help` flag.
 
 ```
-$ npx contract-shark --help
+$ npx contractshark --help
 ```
 
 #### Running tests
@@ -226,19 +224,19 @@ For a full example of a Solidity contract repository including continuous integr
 
 | Package                                                                                                                | Description                    | Version |
 | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
-| [@contract-shark/cli](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-cli)             | Command-line interface.        |
-| [@contract-shark/compiler](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-compiler)   | Smart contracts compiler.      |
-| [@contract-shark/flattener](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-flattener) | Smart contracts flattener.     |
-| [@contract-shark/init](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-init)           | Project structure initializer. |
-| [@contract-shark/sandbox](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-sandbox)     | Ethereum sandbox server.       |
-| [@contract-shark/spec](https://github.com/contract-shark/framework/tree/master/packages/contract-shark-spec)           | Core test suite.               |
+| [@contractshark/cli](https://github.com/contractshark/framework/tree/master/packages/contractshark-cli)             | Command-line interface.        |
+| [@contractshark/compiler](https://github.com/contractshark/framework/tree/master/packages/contractshark-compiler)   | Smart contracts compiler.      |
+| [@contractshark/flattener](https://github.com/contractshark/framework/tree/master/packages/contractshark-flattener) | Smart contracts flattener.     |
+| [@contractshark/init](https://github.com/contractshark/framework/tree/master/packages/contractshark-init)           | Project structure initializer. |
+| [@contractshark/sandbox](https://github.com/contractshark/framework/tree/master/packages/contractshark-sandbox)     | Ethereum sandbox server.       |
+| [@contractshark/spec](https://github.com/contractshark/framework/tree/master/packages/contractshark-spec)           | Core test suite.               |
 
 @contract-shark/spec
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/contract-shark/framework/blob/master/CONTRIBUTING.md) for how to help out.
+See [CONTRIBUTING.md](https://github.com/contractshark/framework/blob/master/CONTRIBUTING.md) for how to help out.
 
 ## Licence
 
-See [LICENSE](https://github.com/contract-shark/framework/blob/master/LICENCE) for details.
+See [LICENSE](https://github.com/contractshark/framework/blob/master/LICENCE) for details.
