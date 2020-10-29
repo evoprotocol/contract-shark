@@ -222,8 +222,8 @@ For a full example of a Solidity contract repository including continuous integr
 
 ## Packages
 
-| Package                                                                                                                | Description                    | Version |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
+| Package                                                                                                             | Description                    | Version |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
 | [@contractshark/cli](https://github.com/contractshark/framework/tree/master/packages/contractshark-cli)             | Command-line interface.        |
 | [@contractshark/compiler](https://github.com/contractshark/framework/tree/master/packages/contractshark-compiler)   | Smart contracts compiler.      |
 | [@contractshark/flattener](https://github.com/contractshark/framework/tree/master/packages/contractshark-flattener) | Smart contracts flattener.     |
